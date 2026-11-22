@@ -63,3 +63,17 @@ DELETE /tasks/:id eliminar tarea
 
 La API concreta se elegirá después. Estas rutas son requisitos, no
 direcciones de un servidor ya conectado.
+
+## API de tareas
+
+Fuente remota: JSONPlaceholder, una API pública de datos de prueba.
+URL exacta: https://jsonplaceholder.typicode.com/todos?userId=2
+Método: GET
+Parámetro: userId=2 (valor elegido; está en la constante `userId` de `TaskApiService`)
+
+Campos que llegan de la API: userId, id, title y completed.
+`completed` se convierte al campo `isCompleted` de TaskFlow.
+
+Campos que no llegan de la API: description y priority. TaskFlow los completa con valores de ejemplo: "Sin descripción (API)" y "Sin prioridad (API)".
+
+Marcar una tarea como completada solo modifica la copia en memoria. JSONPlaceholder no guarda cambios permanentes, así que al reiniciar la app la tarea vuelve a su estado original.
